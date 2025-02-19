@@ -99,6 +99,7 @@ const RoomScheduler = () => {
                 </div>
               ))}
             </div>
+
             {weekDates.map((date, dateIndex) => (
               <div key={dateIndex} className="col-span-1">
                 <div className="h-14 mb-2 font-normal text-center text-gray-800">
