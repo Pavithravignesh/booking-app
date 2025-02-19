@@ -49,7 +49,6 @@ interface BookingDetails {
 const RoomScheduler = () => {
   const [weekDates] = useState(getCurrentWeekDates());
   const [selectedSlot, setSelectedSlot] = useState<SlotType | null>(null);
-  const [draggingBooking, setDraggingBooking] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
   const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
 
@@ -64,7 +63,6 @@ const RoomScheduler = () => {
   };
 
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, details: BookingDetails) => {
-    setDraggingBooking(true);
     e.dataTransfer.setData('text/plain', JSON.stringify(details));
   };
 
@@ -74,7 +72,6 @@ const RoomScheduler = () => {
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>, roomId: number, date: Date, time: string) => {
     e.preventDefault();
-    setDraggingBooking(false);
     const details = JSON.parse(e.dataTransfer.getData('text/plain'));
     setBookingDetails({
       ...details,
@@ -94,7 +91,6 @@ const RoomScheduler = () => {
         </CardHeader>
         <CardContent>
           <div className="p-6 grid grid-cols-8 gap-4">
-            {/* Time slots column */}
             <div className="col-span-1">
               <div className="h-14 mb-2"></div>
               {rooms.map(room => (
@@ -103,8 +99,6 @@ const RoomScheduler = () => {
                 </div>
               ))}
             </div>
-
-            {/* Calendar grid */}
             {weekDates.map((date, dateIndex) => (
               <div key={dateIndex} className="col-span-1">
                 <div className="h-14 mb-2 font-normal text-center text-gray-800">
@@ -141,63 +135,6 @@ const RoomScheduler = () => {
           </div>
         </CardContent>
       </Card>
-
-      {/* Booking Summary Modal */}
-      {showSummary && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
-          <Card className="w-[400px] shadow-xl">
-            <CardHeader>
-              <div className="flex flex-row items-center justify-between border-b">
-                <CardTitle>Booking Summary</CardTitle>
-                <button 
-                  onClick={() => setShowSummary(false)} 
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="p-6 space-y-5">
-                {/* Summary Details */}
-                <div className="space-y-4">
-                  <div>
-                    <p className="font-normal text-gray-700 mb-1">Room</p>
-                    <p className="text-gray-600">{bookingDetails?.room}</p>
-                  </div>
-                  <div>
-                    <p className="font-normal text-gray-700 mb-1">Date</p>
-                    <p className="text-gray-600">{bookingDetails?.date}</p>
-                  </div>
-                  <div>
-                    <p className="font-normal text-gray-700 mb-1">Time</p>
-                    <p className="text-gray-600">{bookingDetails?.startTime} - {bookingDetails?.endTime}</p>
-                  </div>
-                </div>
-                
-                {/* Action Buttons */}
-                <div className="flex justify-end space-x-4 pt-4">
-                  <button
-                    onClick={() => setShowSummary(false)}
-                    className="px-4 py-2 border rounded-lg hover:bg-gray-50 transition-colors"
-                  >
-                    Cancel
-                  </button>
-                  <button
-                    onClick={() => {
-                      // Handle confirmation here
-                      setShowSummary(false);
-                    }}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Confirm Booking
-                  </button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      )}
     </div>
   );
 };
