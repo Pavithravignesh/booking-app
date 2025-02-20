@@ -10,7 +10,7 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
     const rooms = generateRoomColors(roomsCount);
     const [selectedSlots, setSelectedSlots] = useState<Slot[]>([]);
     const [confirmedSlots, setConfirmedSlots] = useState<Slot[]>([]);
-    const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
+    const [bookingDetails, _setBookingDetails] = useState<BookingDetails | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
