@@ -38,18 +38,18 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
         setIsModalOpen(false);
     };
 
-    const handleSlotClick = (roomId: number, time: string) => {
-        const room = rooms.find(r => r.id === roomId);
-        if (!room) return;
+    // const handleSlotClick = (roomId: number, time: string) => {
+    //     const room = rooms.find(r => r.id === roomId);
+    //     if (!room) return;
 
-        setBookingDetails({
-            room: room.name,
-            startTime: time,
-            endTime: time,
-        });
+    //     setBookingDetails({
+    //         room: room.name,
+    //         startTime: time,
+    //         endTime: time,
+    //     });
 
-        setIsModalOpen(true);
-    };
+    //     setIsModalOpen(true);
+    // };
 
     const handleConfirmClick = () => {
         if (selectedSlots.length === 0) return;
