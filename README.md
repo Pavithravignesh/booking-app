@@ -70,7 +70,7 @@ The project uses Tailwind CSS for styling, providing:
 - Consistent styling across the application
 - Easy customization
 
-## Achieved Functionality
+## Achieved Functionalities
 
 - month and year can be selected,
 - Week starts with monday, as saturday and sunday were hoildays. Yet, If the user wants have slot they can be!
