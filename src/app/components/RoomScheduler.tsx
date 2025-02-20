@@ -95,7 +95,7 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="shadow-lg border rounded-lg bg-white">
-        <div className="border-b p-4 font-bold text-lg">Room Scheduler - {selectedDate}</div>
+        {/* <div className="border-b p-4 font-bold text-lg">Room Scheduler - {selectedDate}</div> */}
         <div className="p-4 grid grid-cols-[1fr_repeat(9,1fr)] gap-0">
           <div className="col-span-1"></div>
           {timeSlots.map((time, index) => (
