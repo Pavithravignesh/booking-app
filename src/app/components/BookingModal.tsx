@@ -1,4 +1,5 @@
-import { BookingDetails } from '@/types/scheduler';
+import React from 'react';
+import { BookingDetails } from '../types/scheduler';
 
 interface BookingModalProps {
   isOpen: boolean;
