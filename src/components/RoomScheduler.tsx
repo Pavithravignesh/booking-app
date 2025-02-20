@@ -86,4 +86,4 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
     );
 };
 
-export default RoomScheduler; 
+export default RoomScheduler;

@@ -1,6 +1,6 @@
 # Room Booking Scheduler
 
-A modern, responsive web application for managing room bookings and schedules. Built with Next.js, TypeScript, and Tailwind CSS.
+A simple web application for managing room bookings and schedules. Built with Next.js, TypeScript, and Tailwind CSS.
 
 ![Room Booking Scheduler](screenshot.png)
 
@@ -18,7 +18,7 @@ A modern, responsive web application for managing room bookings and schedules. B
 ### Prerequisites
 
 - Node.js (v14 or higher)
-- npm or yarn
+- npm 
 
 ### Installation
 
@@ -37,10 +37,6 @@ npm install
 bash
 
 npm install
-
-or
-
-yarn install
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
@@ -74,21 +70,20 @@ The project uses Tailwind CSS for styling, providing:
 - Consistent styling across the application
 - Easy customization
 
-## 🤝 Contributing
+## Achieved Functionality
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+- month and year can be selected,
+- Week starts with monday, as saturday and sunday were hoildays. Yet, If the user wants have slot they can be!
+- x - axis in the table represents the time slots and y - axis represents the rooms.
+- User can select the date and time slot to book the room.
+- Rooms count for the daycan be configurable,
+- once, booking got confirmed, it will be shown in the table.
+- User can cancel the booking.
+- data's will be persisted in the local storage.
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Pavithravignesh Sathasivam
 
 ## 🙏 Acknowledgments
 
