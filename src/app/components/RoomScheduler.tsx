@@ -2,6 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 
+interface Slot {
+  roomId: number;
+  time: string;
+}
+
+interface BookingDetails {
+  room: string;
+  startTime: string;
+  endTime: string;
+}
+
 const generateTimeSlots = (start = 9, end = 17) =>
   Array.from({ length: end - start + 1 }, (_, i) => `${start + i}:00`);
 const timeSlots = generateTimeSlots();
@@ -17,17 +28,6 @@ const generateRoomColors = (count: number) => {
     color: colors[i % colors.length],
   }));
 };
-
-interface Slot {
-  roomId: number;
-  time: string;
-}
-
-interface BookingDetails {
-  room: string;
-  startTime: string;
-  endTime: string;
-}
 
 const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selectedDate: string }) => {
   const rooms = generateRoomColors(roomsCount);

@@ -7,9 +7,8 @@ import RoomCountSelector from "./components/RoomCountSelector";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [roomsCount, setRoomsCount] = useState(3); // Start with default value
+  const [roomsCount, setRoomsCount] = useState(3);
 
-  // Load the stored value after component mounts
   useEffect(() => {
     const stored = localStorage.getItem('roomsCount');
     if (stored) {
@@ -17,7 +16,6 @@ export default function Home() {
     }
   }, []);
 
-  // Save roomsCount to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('roomsCount', roomsCount.toString());
   }, [roomsCount]);
@@ -34,7 +32,7 @@ export default function Home() {
           <DateSelector onDateSelect={setSelectedDate} />
           <RoomScheduler
             roomsCount={roomsCount}
-            selectedDate={selectedDate ? selectedDate.toISOString().split('T')[0] : '2025-02-21'}
+            selectedDate={selectedDate ? selectedDate.toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}
           />
         </div>
 

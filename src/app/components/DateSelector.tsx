@@ -26,12 +26,10 @@ const DateSelector = ({ onDateSelect }: DateSelectorProps) => {
     return (
         <div className="w-full pb-4">
             <div className="flex items-center justify-between px-8 w-full">
-                {/* LEFT - Month Selector */}
                 <div>
                     <MonthYearSelector currentDate={currentDate} setCurrentDate={setCurrentDate} />
                 </div>
 
-                {/* RIGHT - Week Selector */}
                 <div>
                     <WeekSelector
                         currentDate={currentDate}

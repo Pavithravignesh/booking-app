@@ -7,7 +7,6 @@ const MonthYearSelector = ({ currentDate, setCurrentDate }: { currentDate: Date,
     const [isMonthDropdownOpen, setIsMonthDropdownOpen] = useState(false);
     const [isYearDropdownOpen, setIsYearDropdownOpen] = useState(false);
 
-    // Reference for detecting clicks outside
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -38,25 +37,22 @@ const MonthYearSelector = ({ currentDate, setCurrentDate }: { currentDate: Date,
             </button>
 
             <div className="flex gap-1 relative">
-                {/* Month Selector */}
                 <button onClick={(e) => { e.stopPropagation(); setIsMonthDropdownOpen(prev => !prev); }}
                     className="text-lg font-semibold hover:bg-gray-100 px-2 rounded">
                     {currentDate.toLocaleString('default', { month: 'short' }).toUpperCase()}
                 </button>
 
-                {/* Year Selector */}
                 <button onClick={(e) => { e.stopPropagation(); setIsYearDropdownOpen(prev => !prev); }}
                     className="text-lg font-semibold hover:bg-gray-100 px-2 rounded">
                     {currentDate.getFullYear()}
                 </button>
 
-                {/* Month Dropdown */}
                 {isMonthDropdownOpen && (
                     <div className="absolute top-full left-0 mt-1 bg-white border rounded-lg shadow-lg z-10 grid grid-cols-3 gap-1 p-2 min-w-[150px] w-max max-w-[200px]">
                         {months.map((month, index) => (
                             <button key={month} onClick={() => {
                                 setCurrentDate(prev => new Date(prev.setMonth(index)));
-                                setIsMonthDropdownOpen(false); // Close after selection
+                                setIsMonthDropdownOpen(false); // get clsoe
                             }}
                                 className="px-3 py-2 hover:bg-gray-100 rounded text-sm w-full text-center truncate">
                                 {month}
@@ -65,13 +61,12 @@ const MonthYearSelector = ({ currentDate, setCurrentDate }: { currentDate: Date,
                     </div>
                 )}
 
-                {/* Year Dropdown */}
                 {isYearDropdownOpen && (
                     <div className="absolute top-full left-0 mt-1 bg-white border rounded-lg shadow-lg z-10 w-24 max-h-48 overflow-y-auto">
                         {years.map(year => (
                             <button key={year} onClick={() => {
                                 setCurrentDate(prev => new Date(prev.setFullYear(year)));
-                                setIsYearDropdownOpen(false); // Close after selection
+                                setIsYearDropdownOpen(false); // 
                             }}
                                 className="w-full px-3 py-2 hover:bg-gray-100 text-left text-sm">
                                 {year}
