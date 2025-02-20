@@ -10,7 +10,7 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
     const rooms = generateRoomColors(roomsCount);
     const [selectedSlots, setSelectedSlots] = useState<Slot[]>([]);
     const [confirmedSlots, setConfirmedSlots] = useState<Slot[]>([]);
-    const [bookingDetails, _setBookingDetails] = useState<BookingDetails | null>(null);
+    const [bookingDetails, setBookingDetails] = useState<BookingDetails | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
@@ -38,18 +38,18 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
         setIsModalOpen(false);
     };
 
-    // const handleSlotClick = (roomId: number, time: string) => {
-    //     const newSlot = { roomId, time };
-    //     const isAlreadySelected = selectedSlots.some(
-    //         (slot) => slot.roomId === roomId && slot.time === time
-    //     );
+    const handleSlotClick = (roomId: number, time: string) => {
+        const room = rooms.find(r => r.id === roomId);
+        if (!room) return;
 
-    //     if (isAlreadySelected) {
-    //         setSelectedSlots(selectedSlots.filter((slot) => !(slot.roomId === roomId && slot.time === time)));
-    //     } else {
-    //         setSelectedSlots([...selectedSlots, newSlot]);
-    //     }
-    // };
+        setBookingDetails({
+            room: room.name,
+            startTime: time,
+            endTime: time,
+        });
+
+        setIsModalOpen(true);
+    };
 
     const handleConfirmClick = () => {
         if (selectedSlots.length === 0) return;
