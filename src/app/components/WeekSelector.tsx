@@ -16,7 +16,7 @@ const WeekSelector = ({
     const getDates = (date: Date): Date[] => {
         const dates: Date[] = [];
         const startDate = new Date(date);
-        startDate.setDate(startDate.getDate() - startDate.getDay() + 1); // Start from Monday
+        startDate.setDate(startDate.getDate() - startDate.getDay() + 1); // start by monday
 
         for (let i = 0; i < 7; i++) {
             dates.push(new Date(startDate));

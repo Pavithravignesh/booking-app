@@ -72,9 +72,9 @@ const RoomScheduler = ({ roomsCount, selectedDate }: { roomsCount: number; selec
   };
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-3">
       <div className="shadow-lg border rounded-lg bg-white">
-        <div className="border-b p-4 font-bold text-lg">Room Scheduler - {selectedDate}</div>
+        {/* <div className="border-b p-4 font-bold text-lg">Room Scheduler - {selectedDate}</div> */}
         
         <TimeSlotGrid
           rooms={rooms}

@@ -22,8 +22,6 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Room Booking Scheduler</h1>
-
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-3xl">
         <div className="flex flex-col space-y-4 mb-2">
           <div className="ml-[45px] mt-[10px]">
