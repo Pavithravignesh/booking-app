@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { generateRoomColors } from "@/utils/roomUtils";
-import { timeSlots } from "@/utils/timeUtils";
 import { Slot, BookingDetails } from "@/types/scheduler";
 import TimeHeader from "./scheduler/TimeHeader";
 import BookingModal from "./scheduler/BookingModal";
